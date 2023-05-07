@@ -1,26 +1,25 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { HTMLAttributes, useState } from 'react';
+import { Dispatch, HTMLAttributes, SetStateAction, useState } from 'react';
 
 import { navLinks } from '@/constants';
 import { cn } from '@/lib/utils';
 import { close, menu } from '@/public';
-import { styles } from '@/styles/commons';
 
-function NavbarLinks(props: HTMLAttributes<HTMLUListElement>) {
-  const [active, setActive] = useState('');
-
+function NavbarLinks(
+  props: HTMLAttributes<HTMLUListElement> & { active: string; setActive: Dispatch<SetStateAction<string>> }
+) {
   return (
     <ul className={props.className}>
       {navLinks.map((link) => (
         <li
           key={link.id}
           className={cn(
-            active === link.title ? 'text-white' : 'text-secondary',
+            props.active === link.title ? 'text-white' : 'text-secondary',
             'cursor-pointer text-base  font-medium transition-colors duration-75 hover:text-white md:text-lg'
           )}
-          onClick={() => setActive((prev) => (prev === link.title ? prev : link.title))}
+          onClick={() => props.setActive((prev) => (prev === link.title ? prev : link.title))}
         >
           <a href={`#${link.id}`}>{link.title}</a>
         </li>
@@ -34,7 +33,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className={cn(`${styles.paddingX}, bg-primary fixed top-0 z-20 flex w-full items-center py-5`)}>
+    <nav className='paddingX bg-primary fixed top-0 z-20 flex w-full items-center py-5'>
       <div className='mx-auto flex w-full max-w-7xl items-center justify-between'>
         <Link
           href='/'
@@ -48,7 +47,7 @@ export default function Navbar() {
             <span className='text-white'>Ismael Herrera</span>
           </p>
         </Link>
-        <NavbarLinks className='hidden list-none flex-row gap-10 sm:flex' />
+        <NavbarLinks className='hidden list-none flex-row gap-10 sm:flex' active={active} setActive={setActive} />
         <div className='flex flex-1 items-center justify-end sm:hidden'>
           <Image
             src={isMenuOpen ? close : menu}
@@ -63,7 +62,11 @@ export default function Navbar() {
               'black-gradient absolute right-0 top-20 z-10 mx-4 my-2 min-w-[140px] rounded-xl p-6'
             )}
           >
-            <NavbarLinks className='flex flex-col items-start justify-end gap-4' />
+            <NavbarLinks
+              className='flex flex-col items-start justify-end gap-4'
+              active={active}
+              setActive={setActive}
+            />
           </div>
         </div>
       </div>
