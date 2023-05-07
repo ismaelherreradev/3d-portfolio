@@ -8,7 +8,11 @@ import { cn } from '@/lib/utils';
 import { close, menu } from '@/public';
 
 function NavbarLinks(
-  props: HTMLAttributes<HTMLUListElement> & { active: string; setActive: Dispatch<SetStateAction<string>> }
+  props: HTMLAttributes<HTMLUListElement> & {
+    active: string;
+    setActive: Dispatch<SetStateAction<string>>;
+    setIsMenuOpen?: Dispatch<SetStateAction<boolean>>;
+  }
 ) {
   return (
     <ul className={props.className}>
@@ -19,7 +23,10 @@ function NavbarLinks(
             props.active === link.title ? 'text-white' : 'text-secondary',
             'cursor-pointer text-base  font-medium transition-colors duration-75 hover:text-white md:text-lg'
           )}
-          onClick={() => props.setActive((prev) => (prev === link.title ? prev : link.title))}
+          onClick={() => {
+            props.setActive((prev) => (prev === link.title ? prev : link.title));
+            props.setIsMenuOpen!(false);
+          }}
         >
           <a href={`#${link.id}`}>{link.title}</a>
         </li>
@@ -66,6 +73,7 @@ export default function Navbar() {
               className='flex flex-col items-start justify-end gap-4'
               active={active}
               setActive={setActive}
+              setIsMenuOpen={setIsMenuOpen}
             />
           </div>
         </div>

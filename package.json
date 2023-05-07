@@ -11,10 +11,12 @@
     "format": "prettier \"**/*.{css,js,json,jsx,ts,tsx}\""
   },
   "dependencies": {
+    "@react-three/drei": "^9.66.4",
     "@react-three/fiber": "^8.13.0",
     "@types/three": "^0.152.0",
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
+    "drei": "link:@types/@react-three/drei",
     "framer-motion": "^10.12.8",
     "maath": "^0.5.3",
     "next": "13.4.1",

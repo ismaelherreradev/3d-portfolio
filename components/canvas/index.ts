@@ -1,3 +1,3 @@
-import ComputerCanvas from './Computer';
+import ComputerCanvas from './computer';
 
 export { ComputerCanvas };

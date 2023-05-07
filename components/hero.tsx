@@ -23,8 +23,8 @@ export default function Hero() {
             make people happy.
           </p>
         </div>
-        <ComputerCanvas />
       </div>
+      <ComputerCanvas />
     </section>
   );
 }
