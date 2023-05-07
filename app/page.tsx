@@ -1,5 +1,6 @@
 import Hero from '@/components/hero';
 import Navbar from '@/components/navbar';
+import { About, Contact, Experience, Feedbacks, StartsCanvas, Tech, Works } from '@/components/sections';
 
 export default function Home() {
   return (
@@ -9,6 +10,15 @@ export default function Home() {
           <Hero />
           <Navbar />
         </div>
+      </div>
+      <About />
+      <Experience />
+      <Tech />
+      <Works />
+      <Feedbacks />
+      <div className='relative z-0'>
+        <Contact />
+        <StartsCanvas />
       </div>
     </main>
   );
