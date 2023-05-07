@@ -8,22 +8,21 @@ import { services } from '@/constants';
 import { fadeIn, staggerContainer, textVariant } from '@/lib/motion';
 import { Services } from '@/types';
 
-function ServiceCard({ title, icon, ...props }: Services & { index: number }) {
+function ServiceCard({ title, icon, index }: Services & { index: number }) {
   return (
-    <Tilt className='xs:w-[250px] w-full'>
+    <Tilt
+      className='xs:w-[250px] w-full'
+      options={{
+        max: 45,
+        scale: 1,
+        speed: 450,
+      }}
+    >
       <motion.div
-        variants={fadeIn('right', 'spring', props.index * 0.5, 0.75)}
+        variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
         className='green-pink-gradient shadow-card w-full rounded-[20px] p-[1px]'
       >
-        <div
-          //  @ts-ignore
-          options={{
-            max: 45,
-            scale: 1,
-            speed: 450,
-          }}
-          className='bg-tertiary flex min-h-[280px] flex-col items-center justify-evenly rounded-[20px] px-12 py-5'
-        >
+        <div className='bg-tertiary flex min-h-[280px] flex-col items-center justify-evenly rounded-[20px] px-12 py-5'>
           <Image src={icon} alt='web-development' className='h-16 w-16 object-contain' />
 
           <h3 className='text-center text-[20px] font-bold text-white'>{title}</h3>
