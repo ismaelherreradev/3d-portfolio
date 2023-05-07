@@ -1,6 +1,6 @@
 import Hero from '@/components/hero';
 import Navbar from '@/components/navbar';
-import { About, Contact, Experience, Feedbacks, StartsCanvas, Tech, Works } from '@/components/sections';
+import { About, Contact, Feedbacks, Works } from '@/components/sections';
 
 export default function Home() {
   return (
@@ -11,13 +11,10 @@ export default function Home() {
           <Navbar />
         </div>
         <About />
-        <Experience />
-        <Tech />
         <Works />
         <Feedbacks />
         <div className='relative z-0'>
           <Contact />
-          <StartsCanvas />
         </div>
       </div>
     </main>

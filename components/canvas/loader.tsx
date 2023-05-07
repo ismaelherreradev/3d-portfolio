@@ -3,7 +3,7 @@ import { Html, useProgress } from '@react-three/drei';
 export default function CanvasLoader() {
   const { progress } = useProgress();
   return (
-    <Html>
+    <Html center>
       <span className='canvas-load'></span>
       <p
         style={{
