@@ -1,3 +1,4 @@
+import StarsCanvas from '@/components/canvas/Starts';
 import Hero from '@/components/hero';
 import Navbar from '@/components/navbar';
 import { About, Contact, Feedbacks, Works } from '@/components/sections';
@@ -15,6 +16,7 @@ export default function Home() {
         <Feedbacks />
         <div className='relative z-0'>
           <Contact />
+          <StarsCanvas />
         </div>
       </div>
     </main>

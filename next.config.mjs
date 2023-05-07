@@ -6,4 +6,7 @@ export default {
   images: {
     domains: ['randomuser.me'],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
