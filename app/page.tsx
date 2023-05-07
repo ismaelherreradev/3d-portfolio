@@ -10,15 +10,15 @@ export default function Home() {
           <Hero />
           <Navbar />
         </div>
-      </div>
-      <About />
-      <Experience />
-      <Tech />
-      <Works />
-      <Feedbacks />
-      <div className='relative z-0'>
-        <Contact />
-        <StartsCanvas />
+        <About />
+        <Experience />
+        <Tech />
+        <Works />
+        <Feedbacks />
+        <div className='relative z-0'>
+          <Contact />
+          <StartsCanvas />
+        </div>
       </div>
     </main>
   );
